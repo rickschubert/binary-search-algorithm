@@ -6,12 +6,13 @@ import (
 
 func getMiddleIdx(list []int) int {
 	listLength := len(list)
-	midIdx := int(math.Round(float64(listLength)/2)) - 1
+	roundedMiddle := math.Round(float64(listLength) / 2)
+	midIdx := int(roundedMiddle) - 1
 	return midIdx
 }
 
 func isValueInFirstHalf(idx int, value int, list []int) bool {
-	return list[idx] >= value
+	return list[idx] > value
 }
 
 func getListHalfWithValue(idx int, value int, list []int) ([]int, int) {
