@@ -35,6 +35,10 @@ func valueIsOutOfSortedListRange(value int, list []int) bool {
 	}
 }
 
+func makeCopy(list []int) []int {
+	return append([]int(nil), list...)
+}
+
 func findValueInList(value int, list []int) int {
 	// Automatically fail an empty list
 	if len(list) == 0 {
@@ -53,7 +57,8 @@ func findValueInList(value int, list []int) int {
 	var firstValTempList = list[0]
 	var tempList []int
 	var lengthLeftHalf int
-	tempList = list
+	// copy slice in order to not muate it
+	tempList = makeCopy(list)
 
 	// Infinite loop that breaks if the index was found
 	for true {
