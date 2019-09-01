@@ -25,7 +25,7 @@ func TestBinarySearch(t *testing.T) {
 	g.Describe("Binary Search Unit Tests", func() {
 		g.It("Look for every value in list from 1 to 1000, without mutating list", func() {
 			sortedList := makeRangedList(1, 1000)
-			sortedListWeStartedWith := append([]int(nil), sortedList...)
+			sortedListWeStartedWith := makeCopy(sortedList)
 			for idx, val := range sortedList {
 				result := findValueInList(val, sortedList)
 				g.Assert(result).Equal(idx)
